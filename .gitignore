@@ -127,3 +127,13 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+#PyCharm
+.idea/
+
+#Project
+bonk_hj_bot.db
+modules/base64.py
+
+
