@@ -52,7 +52,6 @@ async def cmd_bonk(update: telegram.Update, context: telegram.ext.CallbackContex
                                          f"GROUP BY user_id " 
                                          f"ORDER BY bonks_count DESC, last_message ASC "
                                          f"LIMIT 1")
-                print(top_score)
             bonk_user_id = update.effective_message.reply_to_message.from_user.id
             bonk_message_id = update.effective_message.reply_to_message.message_id
 
@@ -76,7 +75,6 @@ async def cmd_bonk(update: telegram.Update, context: telegram.ext.CallbackContex
                                    f"FROM bonks "
                                    f"WHERE chat_id = {update.effective_chat.id} "
                                    f"AND user_id = {bonk_user_id}")
-                print(res)
                 await update.effective_chat.send_message(reply_to_message_id=bonk_message_id,
                                                          text="Bonk! Go to horny jail\n"
                                                               f"You were bonked a total of {res} time{'' if res == 1 else 's'} in this chat")
