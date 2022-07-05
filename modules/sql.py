@@ -1,5 +1,7 @@
+from __future__ import annotations
 import sqlite3
 import config.CONFIG
+from typing import Union
 
 _SCHEMA = (
     """CREATE TABLE IF NOT EXISTS chats (
@@ -26,7 +28,7 @@ for i in _SCHEMA:
     _cur.execute(i)
 
 
-def run_query_s(query: str | tuple[str, ...], params: tuple | tuple[tuple, ...] = ()) -> sqlite3.Cursor | list[sqlite3.Cursor] | None:
+def run_query_s(query: Union[str, tuple[str, ...]], params: Union[tuple, tuple[tuple, ...]] = ()) -> Union[sqlite3.Cursor, list[sqlite3.Cursor], None]:
     """Run single or multiple queries
     If query is a tuple and params is a tuple of tuples of same length, it runs all couples of queries and tuples
     If query is a tuple and params a tuple of parameters, it runs all the queries with the same params
@@ -68,7 +70,7 @@ def run_query_s(query: str | tuple[str, ...], params: tuple | tuple[tuple, ...] 
         raise TypeError("Invalid params type")
 
 
-def fetchone(query: str, params: tuple = ()) -> int | str | float | None:
+def fetchone(query: str, params: tuple = ()) -> Union[int, str, float, None]:
     """Run a single query with params and executes fetchone() on it
     If there's no result, it returns None
     If there's a single result, it returns that single result

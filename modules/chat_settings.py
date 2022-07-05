@@ -1,8 +1,10 @@
+from __future__ import annotations
 import collections
 import telegram
 import modules.common
 import modules.sql as sql
 import copy
+from typing import Union
 
 Setting = collections.namedtuple("Setting", "name text")
 
@@ -36,7 +38,7 @@ def ensure_chat_settings_in_cache(chat: telegram.Chat) -> None:
                                                                            f"WHERE chat_id = {chat.id}")))
 
 
-def get_group_settings(chat: telegram.Chat, settings: None | Setting | tuple[Setting] = None) -> bool | dict[str: bool]:
+def get_group_settings(chat: telegram.Chat, settings: Union[None, Setting, tuple[Setting]] = None) -> Union[bool, dict[str: bool]]:
     """Get settings from specific group
     Returns bool for a single setting
     Returns dictionary as 'setting_name': bool for multiple settings"""
@@ -57,7 +59,7 @@ def get_group_settings(chat: telegram.Chat, settings: None | Setting | tuple[Set
     return res
 
 
-def set_group_setting(chat: telegram.Chat, settings: None | Setting | tuple[Setting], value: bool) -> None:
+def set_group_setting(chat: telegram.Chat, settings: Union[None, Setting, tuple[Setting]], value: bool) -> None:
     """Set a single group setting"""
     ensure_chat_settings_in_cache(chat)
     _group_settings_cache[chat.id][settings.name] = value
