@@ -1,6 +1,6 @@
 # bonk_hj_bot
 Bonk someone for being horny in a group chat and keep track of how many times they got bonked!  
-t.me/bonk_hj_bot
+[t.me/bonk_hj_bot](https://www.t.me/bonk_hj_bot)
 
 # Self hosting
 To self host this bot:  
