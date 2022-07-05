@@ -8,7 +8,7 @@ IDs by themselves contain little private data regarding the user. This bot doesn
 /top pulls usernames and names on the fly using Telegram's APIs without storing them
 
 <b>Why is privacy mode disabled? Are you reading all my group chat messages?</b>
-Privacy mode is disable because if it weren't, the bot wouldn't be even able to reply to the message on which /bonk was used
+Privacy mode is disable because if it weren't, the bot wouldn't be even able to know which user was bonked
 I'm not reading any of your group chat messages. No data regarding the messages is ever stored, and logging is set to a level that doesn't show details about the messages
 
 <b>I still don't trust you with my data</b>
