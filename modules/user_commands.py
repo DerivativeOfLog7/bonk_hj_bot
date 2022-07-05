@@ -132,7 +132,7 @@ async def cmd_top(update: telegram.Update, context: telegram.ext.CallbackContext
             tot_chat_bonks = sql.fetchone(f"SELECT COUNT(*) "
                                           f"FROM bonks "
                                           f"WHERE chat_id = {update.effective_chat.id}")
-            msg = f"Total number of bonks: {tot_chat_bonks}"
+            msg = f"Total number of bonks: {tot_chat_bonks}\n"
             # Get top 10 users
             top10 = sql.run_query_s(f"SELECT COUNT(*) AS bonks_count, user_id, MAX(message_id) AS last_message "
                                     f"FROM bonks "
