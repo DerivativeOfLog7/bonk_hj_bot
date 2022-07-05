@@ -13,7 +13,7 @@ I'm not reading any of your group chat messages. No data regarding the messages 
 
 <b>I still don't trust you with my data</b>
 This project is open source, meaning you can dive in the inner workings and check how it works by yourself, or even self host the bot
-Run /about to get to the GitHub page of this bot (or here's a shortcut to the <a href="https://github.com/DerivativeOfLog7/bonk_hj_bot/blob/main/modules/sql.py#L4">SQL structure</a>)
+Run /about to get to the GitHub page of this bot (or here's a shortcut to the <a href="https://github.com/DerivativeOfLog7/bonk_hj_bot/blob/main/modules/sql.py#L6">SQL structure</a>)
 
 <b>Can I delete the data this bot has stored about me or a group I'm in?</b>
 You can erase your data by running /erase_data and confirming
