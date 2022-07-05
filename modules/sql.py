@@ -82,3 +82,8 @@ def fetchone(query: str, params: tuple = ()) -> Union[int, str, float, None]:
         res = res[0]
 
     return res
+
+
+def close_db() -> None:
+    _cur.close()
+    _con.close()

@@ -1,4 +1,5 @@
 import typing
+import sys
 import telegram
 import telegram.ext
 import config.SECRETS
@@ -20,6 +21,8 @@ async def cmd_kill(update: telegram.Update, context: telegram.ext.CallbackContex
     if is_owners_private_chat(update):
         await common.send_system_message(
             f"‼️ KILLING BOT ({update.effective_user.username} {update.effective_user.id})", context.bot)
+        sql.close_db()
+        sys.exit(0)
 
 
 async def cmd_bot_stats(update: telegram.Update, context: telegram.ext.CallbackContext):
