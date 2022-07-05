@@ -2,30 +2,17 @@ import sqlite3
 import config.CONFIG
 
 _SCHEMA = (
-    """CREATE TABLE IF NOT EXISTS users (
-user_id INT8 PRIMARY KEY,
-tot_bonks INTEGER DEFAULT 0 NOT NULL
-);""",
     """CREATE TABLE IF NOT EXISTS chats (
 chat_id INT8 PRIMARY KEY,
 allow_top_cmd BOOLEAN DEFAULT 1 NOT NULL,
 show_help_msgs BOOLEAN DEFAULT 1 NOT NULL,
 announce_top_user BOOLEAN DEFAULT 0 NOT NULL
 );""",
-    """CREATE TABLE IF NOT EXISTS memberships (
-user_id INT8 NOT NULL,
-chat_id INT8 NOT NULL,
-tot_bonks INTEGER DEFAULT 0 NOT NULL,
-PRIMARY KEY (user_id, chat_id),
-FOREIGN KEY (user_id) REFERENCES users(user_id),
-FOREIGN KEY (chat_id) REFERENCES chats(chat_id)
-);""",
     """CREATE TABLE IF NOT EXISTS bonks (
 user_id INT8 NOT NULL,
 chat_id INT8 NOT NULL,
 message_id INT8 NOT NULL,
 PRIMARY KEY (user_id, chat_id, message_id),
-FOREIGN KEY (user_id) REFERENCES users(user_id),
 FOREIGN KEY (chat_id) REFERENCES chats(chat_id)
 );"""
 )

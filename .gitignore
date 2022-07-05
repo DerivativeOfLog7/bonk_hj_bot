@@ -135,5 +135,6 @@ dmypy.json
 #Project
 bonk_hj_bot.db
 modules/base64.py
+config/
 
 
