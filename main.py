@@ -45,6 +45,7 @@ def main():
                     CommandHandler("erase_data", cmd_erase_data),
                     CommandHandler("privacy", cmd_privacy),
                     CommandHandler("help", cmd_help),
+                    CommandHandler("about", cmd_about),
                     CommandHandler("stats", cmd_stats),
                     CommandHandler("settings", cmd_settings),
                     CommandHandler("top", cmd_top),

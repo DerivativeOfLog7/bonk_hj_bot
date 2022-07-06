@@ -182,6 +182,14 @@ async def cmd_stats(update: telegram.Update, context: telegram.ext.CallbackConte
 
 
 async def cmd_start(update: telegram.Update, context: telegram.ext.CallbackContext):
+    """/start"""
     if update.effective_chat.type == telegram.Chat.PRIVATE:
         await context.bot.send_message(chat_id=update.effective_chat.id,
                                        text="Add this bot to a group, and use /bonk every time someone sends an horny message!")
+
+
+async def cmd_about(update: telegram.Update, context: telegram.ext.CallbackContext):
+    """/about"""
+    if update.effective_chat.type == telegram.Chat.PRIVATE:
+        await context.bot.send_message(chat_id=update.effective_chat.id,
+                                       text=modules.strings.CMD_HELP_TEXT)
