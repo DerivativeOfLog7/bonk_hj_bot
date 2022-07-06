@@ -192,4 +192,5 @@ async def cmd_about(update: telegram.Update, context: telegram.ext.CallbackConte
     """/about"""
     if update.effective_chat.type == telegram.Chat.PRIVATE:
         await context.bot.send_message(chat_id=update.effective_chat.id,
-                                       text=modules.strings.CMD_HELP_TEXT)
+                                       parse_mode=telegram.constants.ParseMode.HTML,
+                                       text=modules.strings.CMD_ABOUT_TEXT)
