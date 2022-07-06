@@ -33,8 +33,9 @@ async def cmd_bot_stats(update: telegram.Update, context: telegram.ext.CallbackC
                                 "FROM bonks"))
         res.append(sql.fetchone("SELECT COUNT(*) "
                                 "FROM chats"))
-        res.append(sql.fetchone("SELECT COUNT(*) user_id "
-                                "FROM bonks"))
+        res.append(sql.fetchone("SELECT COUNT(*) "
+                                "FROM bonks "
+                                "GROUP BY user_id"))
 
         await update.effective_chat.send_message(parse_mode=telegram.constants.ParseMode.HTML,
                                                  text=f"<b>Total number of bonks:</b> {res[0]}\n"
