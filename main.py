@@ -56,6 +56,7 @@ def main():
                     ]}
     application.add_error_handler(callback=error_callback)
     application.add_handlers(handlers)
+    application.post_init = modules.common.startup_message
     application.run_polling()
 
 

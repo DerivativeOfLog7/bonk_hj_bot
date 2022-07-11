@@ -75,10 +75,16 @@ async def send_system_message(msg: str, app: telegram.Bot) -> None:
     """Send message to system messages channel"""
     await app.send_message(chat_id=config.SECRETS.SYSTEM_MESSAGES_CHANNEL_ID,
                            parse_mode=telegram.constants.ParseMode.HTML,
-                           text=msg)
+                           text=f"{app.name}\n"
+                                f"{msg}")
 
 
 async def generic_message(update: telegram.Update, context: telegram.ext.CallbackContext) -> None:
     """Completely ignore channels"""
     if update.effective_chat.type == telegram.Chat.CHANNEL:
         raise telegram.ext.ApplicationHandlerStop
+
+
+async def startup_message(app: telegram.ext.Application) -> None:
+    await send_system_message("🚀 Bot started", app.bot)
+
